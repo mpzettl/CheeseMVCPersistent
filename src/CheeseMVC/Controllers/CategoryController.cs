@@ -25,5 +25,25 @@ namespace CheeseMVC.Controllers
 
             return View(categories);
         }
+        [HttpPost]
+        public IActionResult Add(AddCategoryViewModel addCategoryViewModel)
+        {
+            if (ModelState.IsValid)
+            {
+                // Add the new cheese to my existing cheeses
+                CheeseCategory newCategory = new CheeseCategory
+                {
+                    Name = addCategoryViewModel.Name,
+                  
+                };
+
+                context.Categories.Add(newCategory);
+                context.SaveChanges();
+
+                return Redirect("/Category");
+            }
+
+            return View(addCategoryViewModel);
+        }
     }
 }
