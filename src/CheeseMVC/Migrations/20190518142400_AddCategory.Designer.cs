@@ -12,7 +12,7 @@ using System;
 namespace CheeseMVC.Migrations
 {
     [DbContext(typeof(CheeseDbContext))]
-    [Migration("20190518122916_AddCategory")]
+    [Migration("20190518142400_AddCategory")]
     partial class AddCategory
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

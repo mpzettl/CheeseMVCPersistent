@@ -1,7 +1,6 @@
 ﻿using CheeseMVC.ViewModels;
 using CheeseMVC.Data;
 using System.Linq;
-using CheeseMVC.Data;
 using Microsoft.AspNetCore.Mvc;
 using CheeseMVC.Models;
 using System.Collections.Generic;
@@ -37,7 +36,7 @@ namespace CheeseMVC.Controllers
         {
             if (ModelState.IsValid)
             {
-                // Add the new cheese to my existing cheeses
+                // Add the new category to my existing categories
                 CheeseCategory newCategory = new CheeseCategory
                 {
                     Name = addCategoryViewModel.Name,
@@ -47,7 +46,7 @@ namespace CheeseMVC.Controllers
                 context.Categories.Add(newCategory);
                 context.SaveChanges();
 
-                return Redirect("/Index");
+                return Redirect("/Category/Index");
             }
 
             return View(addCategoryViewModel);
