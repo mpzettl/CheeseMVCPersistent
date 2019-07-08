@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using CheeseMVC.Models;
 using System.Collections.Generic;
 
+
 namespace CheeseMVC.Controllers
 {
     public class CategoryController : Controller
@@ -20,11 +21,11 @@ namespace CheeseMVC.Controllers
         public IActionResult Index()
         {
             //return list of all the cheese categories
-            List<CheeseCategory> categories = context.Categories.ToList();
+            List<CheeseCategory> cheeseCategories = context.Categories.ToList();
 
-            return View(categories);
+            return View(cheeseCategories);
         }
-
+        [HttpGet]
         public IActionResult Add()
         {
             AddCategoryViewModel addCategoryViewModel = new AddCategoryViewModel();
@@ -39,14 +40,13 @@ namespace CheeseMVC.Controllers
                 // Add the new category to my existing categories
                 CheeseCategory newCategory = new CheeseCategory
                 {
-                    Name = addCategoryViewModel.Name,
-                  
+                    Name = addCategoryViewModel.Name, 
                 };
 
                 context.Categories.Add(newCategory);
                 context.SaveChanges();
 
-                return Redirect("/Category/Index");
+                return Redirect("/Category");
             }
 
             return View(addCategoryViewModel);
