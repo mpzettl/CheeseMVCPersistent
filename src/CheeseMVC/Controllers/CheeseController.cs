@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CheeseMVC.Data;
 using CheeseMVC.Models;
-using System.Collections.Generic;
 using CheeseMVC.ViewModels;
-using CheeseMVC.Data;
-using System.Linq;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace CheeseMVC.Controllers
 {
@@ -39,7 +39,7 @@ namespace CheeseMVC.Controllers
 
             if (ModelState.IsValid && newCheeseCategory != null)
             {
-                
+
                 // Add the new cheese to my existing cheeses
                 Cheese newCheese = new Cheese
                 {
