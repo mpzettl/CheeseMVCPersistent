@@ -2,11 +2,14 @@
 
 <h1>@ViewBag.Title</h1>
 
+<ul>
+    @foreach (var cheeseCategory in Model)
+    {
+        <li>@cheeseCategory.Name</li>
 
-@foreach (var cheeseCategory in Model)
-{
-    <ul>@cheeseCategory.Name</ul>
+    }
 
-}
+</ul>
+
 
 <p><a asp-controller="Category" asp-action="Add">Add Category</a></p>
